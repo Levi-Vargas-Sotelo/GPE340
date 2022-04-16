@@ -13,6 +13,13 @@ public abstract class Weapon : MonoBehaviour
     public Transform transformRightHandIK;
     public Transform transformRightHandSolver;
     public Pickup thisGunPrefab;
+    [Header("Enemy Settings")]
+    //stuff for the AI
+    [SerializeField]
+    public float AttackAngle;
+    [SerializeField]
+    public float MaxRange;
+    
 
 
     public virtual void PullTrigger ()

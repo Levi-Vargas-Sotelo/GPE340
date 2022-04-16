@@ -41,10 +41,6 @@ public class SuperFlamingo : Weapon
     // Update is called once per frame
     void Update()
     {
-        //check mouse status
-        if (Input.GetMouseButtonDown(0))
-        {
-            PullTrigger();
-        }
+        
     }
 }

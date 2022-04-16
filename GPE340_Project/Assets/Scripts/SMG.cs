@@ -56,16 +56,7 @@ public class SMG : Weapon
 
     void Update ()
     {
-        //check mouse status
-        if (Input.GetMouseButtonDown(0))
-        {
-            PullTrigger();
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            ReleaseTrigger();
-        }
+        
     }
 
     // Update is called once per frame

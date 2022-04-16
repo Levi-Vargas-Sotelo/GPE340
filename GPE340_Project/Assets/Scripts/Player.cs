@@ -12,15 +12,30 @@ public class Player : WeaponAgent
     [SerializeField] 
     private float runSpeed = 6f;
     //ref for the animator
-    private Animator animator;
+    public Animator animator;
     public Health playerHealth;
     [SerializeField] 
     private Weapon theCurrentEquippedWeapon;
+    [SerializeField]
+    private Weapon defaultGun;
+    [SerializeField]
+    private float deathTime;
+    [SerializeField]
+    private bool Dead;
+    [Header("Ragdoll Attributes")]
+    [SerializeField]
+    private CapsuleCollider mainCollider;
+    [SerializeField]
+    private Rigidbody playerRB;
 
-    private void Awake()
+    override public void Awake()
     {
+        base.Awake();
         //obtain the animator and health at the very start before first frame is drawn
         animator = GetComponent<Animator>();
+        EquipWeapon (defaultGun, 1);
+        mainCollider = GetComponent<CapsuleCollider>();
+        playerRB = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -41,6 +56,20 @@ public class Player : WeaponAgent
         {
             Unequip();
         }
+
+        if (!Dead)
+        {
+            //check mouse status
+            if (Input.GetMouseButtonDown(0))
+            {
+                equippedWeapon.PullTrigger();
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                equippedWeapon.ReleaseTrigger();
+            }
+        } 
     }
 
     //moving player world space
@@ -74,7 +103,10 @@ public class Player : WeaponAgent
     //when die 
     public void Die()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, deathTime);
+        Unequip();
+        RagdollOn();
+        Dead = true;
     }
 
     //equip weapon
@@ -86,6 +118,54 @@ public class Player : WeaponAgent
         OnAnimatorIK();
     }
 
+    //ragdoll settings
+    public void RagdollOn ()
+    {
+        playerRB.isKinematic = true;
+        animator.enabled = false;
+        mainCollider.enabled = false;
+        TurnOffComponentsInChildren();
+    }
+
+    public void RagdollOff ()
+    {
+        animator.enabled = true;
+        TurnOnComponentsInChildren();
+    }
+
+    private void TurnOnComponentsInChildren ()
+    {
+        //loop for enabling children rigidbodies
+        int i;
+        Rigidbody[] childrenRB = GetComponentsInChildren<Rigidbody>();
+        Collider[] childrenColl = GetComponentsInChildren<CapsuleCollider>();
+        for (i = 0; i < childrenRB.Length; i++) 
+        {
+            childrenRB[i].isKinematic = true;
+        }
+        for (i = 0; i < childrenColl.Length; i++) 
+        {
+            childrenColl[i].enabled = false;
+        }
+    }
+
+    private void TurnOffComponentsInChildren ()
+    {
+        //loop for enabling children rigidbodies
+        int i;
+        Rigidbody[] childrenRB = GetComponentsInChildren<Rigidbody>();
+        Collider[] childrenColl = GetComponentsInChildren<CapsuleCollider>();
+        for (i = 0; i < childrenRB.Length; i++) 
+        {
+            childrenRB[i].isKinematic = false;
+        }
+        for (i = 0; i < childrenColl.Length; i++) 
+        {
+            childrenColl[i].enabled = true;
+        }
+        mainCollider.enabled = false;
+        playerRB.isKinematic = true;
+    }
 
     //move hand iks
     protected virtual void OnAnimatorIK()

@@ -60,32 +60,6 @@ Transform:
   m_Father: {fileID: 8676369085095750549}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8281298091558621827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8676369085096245173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daf022c401e762f46a4fa63d676a1753, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useLeftHandIK: 1
-  transformLeftHandIK: {fileID: 6179220348119808907}
-  transformLeftHandSolver: {fileID: 1223383718023329713}
-  useRightHandIK: 1
-  transformRightHandIK: {fileID: 4779949829569849193}
-  transformRightHandSolver: {fileID: 4461244534820799799}
-  thisGunPrefab: {fileID: 6697728820610760500, guid: bf66c045ac20aff4aa820a1f69ee6fef, type: 3}
-  bulletPrefab: {fileID: 4651274512964037867, guid: a75ad35f11d8bf046a03bca2b08d69d4, type: 3}
-  barrelPoint: {fileID: 7158273943289995903}
-  triggerPulled: 0
-  Damage: 5
-  lifeTime: 3
-  fireRate: 15
-  spread: 3
 --- !u!1 &7184594556568571628
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +150,34 @@ Transform:
   m_Father: {fileID: 8676369085095750549}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &-8281298091558621827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8676369085096245173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf022c401e762f46a4fa63d676a1753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useLeftHandIK: 1
+  transformLeftHandIK: {fileID: 6179220348119808907}
+  transformLeftHandSolver: {fileID: 1223383718023329713}
+  useRightHandIK: 1
+  transformRightHandIK: {fileID: 4779949829569849193}
+  transformRightHandSolver: {fileID: 4461244534820799799}
+  thisGunPrefab: {fileID: 6697728820610760500, guid: bf66c045ac20aff4aa820a1f69ee6fef, type: 3}
+  AttackAngle: 2.5
+  MaxRange: 15
+  bulletPrefab: {fileID: 4651274512964037867, guid: a75ad35f11d8bf046a03bca2b08d69d4, type: 3}
+  barrelPoint: {fileID: 7158273943289995903}
+  triggerPulled: 0
+  Damage: 5
+  lifeTime: 3
+  fireRate: 15
+  spread: 3
 --- !u!1001 &5668241559608653877
 PrefabInstance:
   m_ObjectHideFlags: 0

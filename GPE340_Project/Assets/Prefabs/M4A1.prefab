@@ -169,6 +169,8 @@ MonoBehaviour:
   transformRightHandIK: {fileID: 6991777068333369456}
   transformRightHandSolver: {fileID: 5135021757522918349}
   thisGunPrefab: {fileID: 6272270417439045580, guid: 37e712fb4d541264d896507f1504f111, type: 3}
+  AttackAngle: 5
+  MaxRange: 15
   bulletPrefab: {fileID: 4651274512964037867, guid: a75ad35f11d8bf046a03bca2b08d69d4, type: 3}
   barrelPoint: {fileID: 4426202423970159301}
   triggerPulled: 0

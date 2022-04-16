@@ -11,13 +11,12 @@ public class WeaponAgent : MonoBehaviour
     public Weapon equippedWeapon;
 
     public Vector3 dropOffset;
-    public Weapon testgun;
 
-
-    void Awake()
+    public virtual void Awake()
     {
-        EquipWeapon(testgun, 0);
+
     }
+    
     //equip weapon
     public virtual void EquipWeapon(Weapon weapon, int gunType)
     {

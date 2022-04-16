@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
     [SerializeField]
     private UnityEvent OnDamage;
     [SerializeField]
-    private UnityEvent OnDeath;
+    public UnityEvent OnDeath;
 
     //damage event
     public void Damage (float damageTaken)

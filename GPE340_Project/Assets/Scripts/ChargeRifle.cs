@@ -61,17 +61,6 @@ public class ChargeRifle : Weapon
     // Update is called once per frame
     void Update()
     {
-        //check mouse status
-        if (Input.GetMouseButtonDown(0))
-        {
-            PullTrigger();
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            ReleaseTrigger();
-        }
-
         if (charging)
         {
             damageDone += damageRate * Time.deltaTime;

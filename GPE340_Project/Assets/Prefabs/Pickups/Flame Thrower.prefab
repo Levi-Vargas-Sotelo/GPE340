@@ -109,6 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 30
-  weaponToEquip: {fileID: 1013390007, guid: 8bef326fdff7bcc44ba9ea3ff026e946, type: 3}
+  weaponToEquip: {fileID: 7143765688364803382, guid: 8bef326fdff7bcc44ba9ea3ff026e946, type: 3}
   animationType: 0
   weaponType: 0

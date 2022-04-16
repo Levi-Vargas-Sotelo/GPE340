@@ -99,7 +99,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 995173422}
-  - component: {fileID: 995173423}
   m_Layer: 0
   m_Name: RightHandIK
   m_TagString: Untagged
@@ -121,33 +120,6 @@ Transform:
   m_Father: {fileID: 2247795399378170961}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 22.736, y: -263.413, z: -343.373}
---- !u!114 &995173423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995173421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cfd0c34bebe4894eaabe59eaee3879c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useLeftHandIK: 0
-  transformLeftHandIK: {fileID: 0}
-  transformLeftHandSolver: {fileID: 0}
-  useRightHandIK: 0
-  transformRightHandIK: {fileID: 0}
-  transformRightHandSolver: {fileID: 0}
-  thisGunPrefab: {fileID: 0}
-  bulletPrefab: {fileID: 0}
-  barrelPoint: {fileID: 0}
-  triggerPulled: 0
-  Damage: 0
-  lifeTime: 0
-  fireRate: 0
-  shotsPerMinute: 0
-  spread: 0
 --- !u!1 &1394017667
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +150,7 @@ Transform:
   m_Father: {fileID: 2247795399378170961}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1013390007
+--- !u!114 &7143765688364803382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,10 +169,12 @@ MonoBehaviour:
   transformRightHandIK: {fileID: 995173422}
   transformRightHandSolver: {fileID: 573978427}
   thisGunPrefab: {fileID: 2072461015912585338, guid: ceb9a152cef1a89428ca6a19d36c92e9, type: 3}
-  bulletPrefab: {fileID: 6877951875954882945, guid: b61d33680ad162248b9f82e59997ad79, type: 3}
+  AttackAngle: 0.5
+  MaxRange: 10
+  bulletPrefab: {fileID: 557062102253411485, guid: b61d33680ad162248b9f82e59997ad79, type: 3}
   barrelPoint: {fileID: 521435008}
   triggerPulled: 0
-  Damage: 5
+  Damage: 10
   lifeTime: 1
   fireRate: 8
   shotsPerMinute: 150
