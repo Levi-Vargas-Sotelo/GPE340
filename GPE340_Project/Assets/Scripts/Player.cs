@@ -38,6 +38,12 @@ public class Player : WeaponAgent
         playerRB = GetComponent<Rigidbody>();
     }
 
+    void Start()
+    {
+        
+        UIManager.UIMInstance.RegisterPlayer (this);
+    }
+
     private void Update()
     {
         //if the player presses and holds shift then start running
@@ -59,16 +65,24 @@ public class Player : WeaponAgent
 
         if (!Dead)
         {
-            //check mouse status
-            if (Input.GetMouseButtonDown(0))
+            if(GameManager.Instance.isPaused == false)
             {
-                equippedWeapon.PullTrigger();
-            }
+                if(equippedWeapon)
+                {
+                    //check mouse status
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        equippedWeapon.PullTrigger();
+                    }
 
-            if (Input.GetMouseButtonUp(0))
-            {
-                equippedWeapon.ReleaseTrigger();
+                    if (Input.GetMouseButtonUp(0))
+                    {
+                        equippedWeapon.ReleaseTrigger();
+                    }
+                }
+                
             }
+            
         } 
     }
 

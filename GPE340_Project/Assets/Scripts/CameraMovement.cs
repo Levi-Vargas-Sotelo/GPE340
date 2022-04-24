@@ -12,7 +12,7 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameManager.Instance.thePlayer.transform;    
+          
     }
 
     // Update is called once per frame
@@ -22,5 +22,10 @@ public class CameraMovement : MonoBehaviour
         {
             gameObject.transform.position = target.position + offsetFromTarget;
         }
+    }
+
+    public void getPlayer()
+    {
+        target = GameManager.Instance.thePlayer.transform;  
     }
 }

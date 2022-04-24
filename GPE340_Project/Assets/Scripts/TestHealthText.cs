@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class TestHealthText : MonoBehaviour 
 {
-    public Health health;
+    public Health playerHealth;
     private Text text;
 
     private void Awake()
@@ -16,6 +16,14 @@ public class TestHealthText : MonoBehaviour
 
     private void Update()
     {
-        text.text = string.Format("Health: " + health.healthValue);
+        if (playerHealth)
+        {
+            text.text = string.Format("Health: " + playerHealth.healthValue);
+        }
+    }
+
+    public void getPlayerHealth()
+    {
+        playerHealth = GameManager.Instance.thePlayer.playerHealth;
     }
 } 

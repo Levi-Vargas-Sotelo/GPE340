@@ -13,6 +13,7 @@ public abstract class Weapon : MonoBehaviour
     public Transform transformRightHandIK;
     public Transform transformRightHandSolver;
     public Pickup thisGunPrefab;
+    public Sprite gunIcon;
     [Header("Enemy Settings")]
     //stuff for the AI
     [SerializeField]

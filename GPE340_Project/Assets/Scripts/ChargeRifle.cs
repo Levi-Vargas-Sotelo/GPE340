@@ -47,12 +47,20 @@ public class ChargeRifle : Weapon
     public override void PullTrigger()
     {
         //if trigger is pulled
+        if (GameManager.Instance.isPaused)
+        {
+            return;
+        }
         charging = true;
         base.PullTrigger();
     }
     public override void ReleaseTrigger()
     {
         //if trigger is released
+        if (GameManager.Instance.isPaused)
+        {
+            return;
+        }
         charging = false;
         ShootBullets();
         base.ReleaseTrigger();

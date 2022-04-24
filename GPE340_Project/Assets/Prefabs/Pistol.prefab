@@ -169,6 +169,7 @@ MonoBehaviour:
   transformRightHandIK: {fileID: 4779949829569849193}
   transformRightHandSolver: {fileID: 4461244534820799799}
   thisGunPrefab: {fileID: 6697728820610760500, guid: bf66c045ac20aff4aa820a1f69ee6fef, type: 3}
+  gunIcon: {fileID: 21300000, guid: acb98f861ac5dbb4689592346ad53e16, type: 3}
   AttackAngle: 2.5
   MaxRange: 15
   bulletPrefab: {fileID: 4651274512964037867, guid: a75ad35f11d8bf046a03bca2b08d69d4, type: 3}

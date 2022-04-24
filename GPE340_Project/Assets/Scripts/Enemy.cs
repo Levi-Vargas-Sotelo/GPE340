@@ -39,11 +39,19 @@ public class Enemy : WeaponAgent
         healthEnemy = GetComponent<Health>();
         mainCollider = GetComponent<CapsuleCollider>();
         enemyRB = GetComponent<Rigidbody>();
+        GameManager.Instance.SpawnPlayer.AddListener (GetPlayer);
     }
 
     void Start()
     {
-        target = GameManager.Instance.thePlayer;
+        GetPlayer();
+        UIManager.UIMInstance.RegisterEnemy(this);
+    }
+
+    void GetPlayer()
+    {
+        //Debug.Log("");
+        target = GameManager.Instance.thePlayer.gameObject;
     }
 
     // Update is called once per frame
@@ -61,19 +69,6 @@ public class Enemy : WeaponAgent
                 return;
             }
 
-            /*
-            //shoot player
-            if (Vector3.Angle(target.transform.forward, transform.position - target.transform.position) < equippedWeapon.AttackAngle)
-            {
-                if(equippedWeapon)
-                {
-                    StartCoroutine(ShootAndRelease());
-                    //equippedWeapon.PullTrigger();
-                }
-                
-            }
-            */
-
             //navigate to player
             navMeshAgent.SetDestination (target.transform.position);
         }
@@ -81,6 +76,11 @@ public class Enemy : WeaponAgent
 
     void FixedUpdate()
     {
+        if (GameManager.Instance.isPaused)
+        {
+            return;
+        }
+        
         if(!Dead)
         {
             if(target)
@@ -97,7 +97,6 @@ public class Enemy : WeaponAgent
                 }
             }
         }
-        
     }
 
     public void Die()

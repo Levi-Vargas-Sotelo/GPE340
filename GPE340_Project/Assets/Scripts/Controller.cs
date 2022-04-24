@@ -13,19 +13,23 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player.playerHealth.OnDeath.AddListener (Uncontroll);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.isPaused)
+        {
+            return;
+        }
+
         if(playable)
         {
             if(player != null)
             {
                 //move controller to affect the player
                 player.Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) );
-
 
                 //create plane variable and make raycast according to screen perspective
                 Plane plane = new Plane (Vector3.up, transform.position);
@@ -49,5 +53,16 @@ public class Controller : MonoBehaviour
     private void Uncontroll()
     {
         playable = false;
+    }
+
+    public void Control()
+    {
+        playable = true;
+    }
+
+    public void GetPlayer()
+    {
+        player = GameManager.Instance.thePlayer;
+        player.playerHealth.OnDeath.AddListener (Uncontroll);
     }
 }

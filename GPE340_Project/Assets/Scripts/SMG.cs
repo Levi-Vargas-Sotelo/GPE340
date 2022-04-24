@@ -43,6 +43,10 @@ public class SMG : Weapon
     public override void PullTrigger()
     {
         //if trigger is pulled
+        if (GameManager.Instance.isPaused)
+        {
+            return;
+        }
         triggerPulled = true;
         base.PullTrigger();
     }

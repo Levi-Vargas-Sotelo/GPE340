@@ -34,6 +34,10 @@ public class SuperFlamingo : Weapon
     public override void PullTrigger()
     {
         //if trigger is pulled
+        if (GameManager.Instance.isPaused)
+        {
+            return;
+        }
         ShootBullets();
         base.PullTrigger();
     }

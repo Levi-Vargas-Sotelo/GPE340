@@ -55,6 +55,11 @@ public class EnemySpawn : MonoBehaviour
         }
     }
 
+    void BossDefeated()
+    {
+        GameManager.Instance.WinGame();
+    }
+
     public void SpawnEnemy()
     {
         if (currentActiveEnemies < maxActiveEnemies)
@@ -75,6 +80,7 @@ public class EnemySpawn : MonoBehaviour
     {
         Enemy boss = Instantiate (bosses[Random.Range (0, enemies.Length)], spawnPoints[Random.Range (0, spawnPoints.Length)].transform.position, spawnPoints[Random.Range (0, spawnPoints.Length)].transform.rotation) as Enemy;
         MarkEnemiesUntilBoss();
+        boss.healthEnemy.OnDeath.AddListener (BossDefeated);
     }
 
     private void IncreaseActiveEnemies()

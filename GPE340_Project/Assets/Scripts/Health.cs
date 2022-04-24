@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
 {
     //variables
     [SerializeField]
-    private float maxHealthValue;
+    public float maxHealthValue;
     public float healthValue;
 
     //events to call
@@ -27,6 +27,7 @@ public class Health : MonoBehaviour
         if (healthValue <= 0)
         {
             //die
+            healthValue = 0;
             Kill();
         }
     }

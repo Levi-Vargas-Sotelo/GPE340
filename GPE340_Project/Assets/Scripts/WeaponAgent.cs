@@ -32,7 +32,7 @@ public class WeaponAgent : MonoBehaviour
     {
         if (equippedWeapon)
         {
-            DropGun(equippedWeapon.thisGunPrefab);
+            //DropGun(equippedWeapon.thisGunPrefab);
             Destroy (equippedWeapon.gameObject);
             equippedWeapon = null;
         }
