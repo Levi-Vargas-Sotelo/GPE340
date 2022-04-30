@@ -4909,3 +4909,4 @@ MonoBehaviour:
   Damage: 15
   projectileRB: {fileID: 0}
   destroyTime: 1
+  sparks: {fileID: 0}

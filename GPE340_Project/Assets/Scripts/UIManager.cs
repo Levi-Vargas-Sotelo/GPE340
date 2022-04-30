@@ -24,6 +24,8 @@ public class UIManager : MonoBehaviour
     private GameObject loseMenu;
     [SerializeField]
     private GameObject winMenu;
+    [SerializeField]
+    private GameObject SettingsMenu;
 
 
     void Awake ()
@@ -93,5 +95,15 @@ public class UIManager : MonoBehaviour
     public void ShowWinMenu()
     {
         winMenu.SetActive(true);
+    }
+
+    public void HideSettingsMenu()
+    {
+        SettingsMenu.SetActive(false);
+    }
+
+    public void ShowSettingsMenu()
+    {
+        SettingsMenu.SetActive(true);
     }
 }

@@ -75,6 +75,7 @@ public class FlameThrower : Weapon
                 //shoot
                 ShootBullets();
                 timeNextShotIsReady += 60f / shotsPerMinute;
+                base.PullTrigger();
             }
         } 
         //reset time

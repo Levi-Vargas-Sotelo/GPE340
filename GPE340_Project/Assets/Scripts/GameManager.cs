@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,7 +24,17 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float spawnDelay;
     public Controller playerCont;
+    
     [SerializeField]
+    public float sFXVolume;
+    [SerializeField]
+    public float musicVolume;
+    [SerializeField]
+    private AudioMixer audioMixer;
+    [SerializeField]
+    private AnimationCurve volumeToDB;
+    [SerializeField]
+
     public UnityEvent RespawnPlayer;
     [SerializeField]
     public UnityEvent SpawnPlayer;
@@ -54,10 +66,6 @@ public class GameManager : MonoBehaviour
             if(!isPaused)
             {
                 PauseGame();
-            }
-            else
-            {
-                ResumeGame();
             }
         }
   
@@ -129,5 +137,15 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds (spawnDelay);
         RespawnPlayer.Invoke();
+    }
+
+    public void SetMusic(float value)
+    {
+        audioMixer.SetFloat ("Music Volume", Mathf.Log10(value) * 20);
+    }
+
+    public void SetSFX(float value)
+    {
+        audioMixer.SetFloat ("SFX Volume", Mathf.Log10(value) * 20);
     }
 }

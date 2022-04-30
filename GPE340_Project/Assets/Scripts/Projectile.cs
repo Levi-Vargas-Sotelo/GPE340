@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
     public Rigidbody projectileRB;
     [SerializeField]
     public float destroyTime;
+    public Particles sparks;
 
     void Awake ()
     {
@@ -39,6 +40,10 @@ public class Projectile : MonoBehaviour
         {
             //if it does then damage
             DealDamage(health);
+            if(sparks)
+            {
+                Instantiate(sparks, gameObject.transform.position, gameObject.transform.rotation);
+            }
         }
         Destroy(gameObject);
     }

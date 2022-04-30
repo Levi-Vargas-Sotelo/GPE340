@@ -14,6 +14,8 @@ public abstract class Weapon : MonoBehaviour
     public Transform transformRightHandSolver;
     public Pickup thisGunPrefab;
     public Sprite gunIcon;
+    public AudioClip shootSound;
+    public AudioSource source;
     [Header("Enemy Settings")]
     //stuff for the AI
     [SerializeField]
@@ -25,6 +27,10 @@ public abstract class Weapon : MonoBehaviour
 
     public virtual void PullTrigger ()
     {
+        if(shootSound != null)
+        {
+            source.PlayOneShot(shootSound);
+        }
     }
 
     public virtual void ReleaseTrigger ()

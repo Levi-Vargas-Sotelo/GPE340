@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyTime: 15
   healAmmount: 10
+  clipPlayer: {fileID: 7715022255567250514, guid: e41b366f09aabc041a90df84a10f6fc3, type: 3}
 --- !u!135 &7742737797008002438
 SphereCollider:
   m_ObjectHideFlags: 0

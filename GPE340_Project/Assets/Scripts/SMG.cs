@@ -48,7 +48,6 @@ public class SMG : Weapon
             return;
         }
         triggerPulled = true;
-        base.PullTrigger();
     }
 
     public override void ReleaseTrigger()
@@ -74,6 +73,7 @@ public class SMG : Weapon
             {
                 //shoot
                 ShootBullets();
+                base.PullTrigger();
                 timeNextShotIsReady += 60f / shotsPerMinute;
             }
         } 

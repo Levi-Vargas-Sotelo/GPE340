@@ -52,7 +52,6 @@ public class ChargeRifle : Weapon
             return;
         }
         charging = true;
-        base.PullTrigger();
     }
     public override void ReleaseTrigger()
     {
@@ -63,6 +62,7 @@ public class ChargeRifle : Weapon
         }
         charging = false;
         ShootBullets();
+        base.PullTrigger();
         base.ReleaseTrigger();
     }
 

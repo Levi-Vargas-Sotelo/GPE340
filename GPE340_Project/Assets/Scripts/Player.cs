@@ -27,6 +27,10 @@ public class Player : WeaponAgent
     private CapsuleCollider mainCollider;
     [SerializeField]
     private Rigidbody playerRB;
+    [SerializeField]
+    private AudioSource source;
+    [SerializeField]
+    private AudioClip clip;
 
     override public void Awake()
     {
@@ -121,6 +125,11 @@ public class Player : WeaponAgent
         Unequip();
         RagdollOn();
         Dead = true;
+        if(clip)
+        {
+            source.PlayOneShot(clip);
+        }
+        
     }
 
     //equip weapon

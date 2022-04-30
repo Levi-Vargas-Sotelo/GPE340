@@ -27,6 +27,10 @@ public class Enemy : WeaponAgent
     private float deathTime;
     [SerializeField]
     private float attackTime;
+    [SerializeField]
+    private AudioSource source;
+    [SerializeField]
+    private AudioClip clip;
 
     // Start is called before the first frame update
     override public void Awake()
@@ -106,6 +110,10 @@ public class Enemy : WeaponAgent
         Dead = true;
         StopAllCoroutines();
         Unequip();
+        if(clip)
+        {
+            source.PlayOneShot(clip);
+        }
     }
 
     //ragdoll settings
